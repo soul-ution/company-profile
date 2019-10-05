@@ -15,6 +15,9 @@ class CreateWidget extends Migration
     {
         Schema::create('widget', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedSmallInteger("type");
+            $table->string("type_name");
+            $table->unsignedTinyInteger("status");
             $table->timestamps();
         });
     }

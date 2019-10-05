@@ -15,6 +15,10 @@ class CreateService extends Migration
     {
         Schema::create('service', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("title");
+            $table->text("description");
+            $table->string("label");
+            $table->unsignedTinyInteger("status");
             $table->timestamps();
         });
     }

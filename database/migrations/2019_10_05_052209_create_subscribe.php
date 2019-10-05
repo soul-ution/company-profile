@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocial extends Migration
+class CreateSubscribe extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSocial extends Migration
      */
     public function up()
     {
-        Schema::create('social', function (Blueprint $table) {
+        Schema::create('subscribe', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("label");
-            $table->string("icon");
-            $table->string("uri");
-            $table->unsignedTinyInteger("status");
+            $table->string("name");
+            $table->string("email", 100)->unique();
+            $table->text("message");
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateSocial extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social');
+        Schema::dropIfExists('subscribe');
     }
 }

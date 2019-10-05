@@ -15,6 +15,10 @@ class CreatePage extends Migration
     {
         Schema::create('page', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("title");
+            $table->string("uri");
+            $table->text("content");
+            $table->unsignedTinyInteger("status");
             $table->timestamps();
         });
     }
